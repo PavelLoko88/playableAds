@@ -1,5 +1,5 @@
 export function initInactivityTimer(
-  toggleIntro: () => void,
+  toggleIntro: (noActive: boolean) => void,
   timeout: number = 30000,
 ): {
   reset: () => void;
@@ -25,8 +25,7 @@ export function initInactivityTimer(
 
     timerId = setTimeout(() => {
       if (isActive) {
-        console.log(`🕒 Бездействие ${timeout / 1000}с — запуск toggleIntro()`);
-        toggleIntro();
+        toggleIntro(true);
       }
     }, timeout);
   };
@@ -38,8 +37,6 @@ export function initInactivityTimer(
     activityEvents.forEach((event) => {
       window.removeEventListener(event, resetTimer);
     });
-
-    console.log("⏹️ Детектор бездействия остановлен");
   };
 
   const startTimer = (): void => {
@@ -52,7 +49,6 @@ export function initInactivityTimer(
     });
 
     resetTimer();
-    console.log("▶️ Детектор бездействия запущен");
   };
 
   activityEvents.forEach((event) => {
