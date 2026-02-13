@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8" />
@@ -10,8 +10,76 @@
 </head>
 
 <body>
-  <div id="app">
-    <div id="pixi-container"></div>
+  <div class="app">
+    <div class="game">
+      <div class="parking">
+        <div class="parkingBox">
+          <div class="parkingBoxLines">
+            <div class="parkingBoxLineV"></div>
+            <div class="parkingBoxLineH"></div>
+          </div>
+          <img class="parkingBoxCar parkingBoxCarParked" src="/assets/TP_car_up2.png" alt="car-image" />
+          <div class="parkingBoxLines">
+            <div class="parkingBoxLineV"></div>
+            <div class="parkingBoxLineH"></div>
+          </div>
+        </div>
+
+        <div class="parkingBox" id="letterYellow">
+          <div class="parkingBoxLetters">
+            <p class="parkingBoxLetter parkingBoxLetterYellow">p</p>
+          </div>
+
+          <div class="parkingBoxLines">
+            <div class="parkingBoxLineV"></div>
+            <div class="parkingBoxLineH"></div>
+          </div>
+        </div>
+
+        <div class="parkingBox" id="letterRed">
+          <div class="parkingBoxLetters">
+            <p class="parkingBoxLetter parkingBoxLetterRed">p</p>
+          </div>
+          <div class="parkingBoxLines">
+            <div class="parkingBoxLineV"></div>
+            <div class="parkingBoxLineH"></div>
+          </div>
+        </div>
+
+        <div class="parkingBox">
+          <img class="parkingBoxCar parkingBoxCarParked" src="/assets/TP_car_up3.png" alt="car-image" />
+          <div class="parkingBoxLines">
+            <div class="parkingBoxLineV"></div>
+            <div class="parkingBoxLineH"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carsInteractive">
+        <img class="parkingBoxCar" src="/assets/TP_car_up1.png" />
+
+        <div class="hand">
+          <img class="handImage" src="/assets/hand.png" alt="hand-image" />
+        </div>
+
+        <img class="parkingBoxCar" src="/assets/TP_car_up4.png" />
+      </div>
+    </div>
+
+
+    <div class="intro">
+
+      <div class="introTitle">
+        <img class="introTitleImage introLogo" src="/assets/gamelogo.png" alt="logo-image" />
+        <img class="introTitleImage introFail" src="/assets/fail.png" alt="fail-image" />
+      </div>
+
+      <a class="introLink" href="https://roasup.com/">
+        <img class="introLinkButton" src="/assets/Button.png" alt="button-image" />
+      </a>
+
+    </div>
+
   </div>
   <script type="module" src="/src/main.ts"></script>
 </body>

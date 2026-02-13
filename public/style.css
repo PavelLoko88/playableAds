@@ -1,15 +1,311 @@
-/* body {
-    margin: 0;
-    padding: 0;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #000000;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-#app {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
+:root {
+  --grey: #545454;
+  --yellow: #ffc841;
+  --red: #d1191f;
+  --white: #ffffff;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+}
+.app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--grey);
+  border: 5px solid var(--yellow);
+  min-height: 700px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.game {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.parking {
+  display: flex;
+}
+.parkingBox {
+  display: flex;
+  align-items: flex-end;
+}
+.parkingBoxLines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.parkingBoxLineV {
+  width: 20px;
+  height: 250px;
+  background-color: var(--white);
+}
+.parkingBoxLineH {
+  width: 40px;
+  height: 20px;
+  background-color: var(--white);
+  border-radius: 5px;
+}
+.parkingBoxLetters {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.parkingBoxLetter {
+  font-size: 72px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.parkingBoxLetterYellow {
+  color: var(--yellow);
+}
+.parkingBoxLetterRed {
+  color: var(--red);
+}
+.parkingBoxCar {
+  width: 200px;
+  height: 200px;
+}
+.parkingBoxCarParked {
+  transform: rotate(180deg);
+}
+
+.carsInteractive {
+  display: flex;
+  align-items: center;
+  gap: 300px;
+  margin-bottom: 100px;
+  position: relative;
+}
+
+.hand {
+  position: absolute;
+  top: 20%;
+  left: 180px;
+  animation: moveHand 0.5s ease-in-out infinite alternate;
+  transition: 230ms ease-in-out opacity;
+}
+
+@keyframes moveHand {
+  0% {
+    top: 10%;
+    left: 180px;
+  }
+  100% {
+    top: 20%;
+    left: 150px;
+  }
+}
+
+.disable {
+  opacity: 0;
+}
+
+.handImage {
+  width: 150px;
+}
+
+.intro {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 700px;
+
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: 1000ms ease-in-out opacity;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.introActive {
+  opacity: 1;
+  z-index: 10;
+}
+
+.introTitle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.introTitleImage {
+  opacity: 0;
+  position: absolute;
+  width: 350px;
+  transition: 230ms ease-in-out;
+}
+.introLink {
+  opacity: 0;
+  transition: 230ms ease-in-out;
+  height: fit-content;
+}
+
+.introLogoActive,
+.introFailActive,
+.introButtonActive {
+  opacity: 1;
+}
+
+.introLinkButton {
+  cursor: pointer;
+  width: 400px;
+  height: auto;
+}
+
+@media (max-width: 1100px) {
+  .app {
+    border: 4px solid var(--yellow);
+  }
+  /* 
+  .parkingBoxLineV {
+    width: 20px;
+    height: 250px;
+  }
+  .parkingBoxLineH {
+    width: 40px;
+    height: 20px;
+    border-radius: 5px;
+  } */
+  .parkingBoxLetters {
+    width: 100px;
+    height: 100px;
+  }
+  .parkingBoxLetter {
+    font-size: 64px;
+  }
+
+  .parkingBoxCar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .carsInteractive {
+    gap: 150px;
+    margin-bottom: 100px;
+  }
+
+  .hand {
+    top: 20%;
+    left: 100px;
+  }
+  @keyframes moveHand {
+    0% {
+      top: 10%;
+      left: 100px;
+    }
+    100% {
+      top: 20%;
+      left: 80px;
+    }
+  }
+  .handImage {
+    width: 75px;
+  }
+
+  .introTitleImage {
+    width: 250px;
+  }
+
+  .introLinkButton {
+    width: 300px;
+  }
+}
+
+@media (max-width: 670px) {
+  .app {
+    border: 3px solid var(--yellow);
+    min-height: 400px;
+  }
+
+  .parkingBoxLineV {
+    width: 10px;
+    height: 175px;
+  }
+  .parkingBoxLineH {
+    width: 20px;
+    height: 7px;
+    border-radius: 5px;
+  }
+  .parkingBoxLetters {
+    width: 50px;
+    height: 50px;
+  }
+  .parkingBoxLetter {
+    font-size: 45px;
+  }
+
+  .parkingBoxCar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .carsInteractive {
+    gap: 75px;
+    margin-bottom: 40%;
+  }
+
+  .hand {
+    top: 20%;
+    left: 50px;
+  }
+  @keyframes moveHand {
+    0% {
+      top: 5%;
+      left: 50px;
+    }
+    100% {
+      top: 15%;
+      left: 40px;
+    }
+  }
+  .handImage {
+    width: 45px;
+  }
+
+  .intro {
+    min-height: 400px;
+  }
+
+  .introTitleImage {
+    width: 150px;
+  }
+
+  .introLinkButton {
+    width: 200px;
+  }
+}
